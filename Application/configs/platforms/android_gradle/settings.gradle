@@ -1,0 +1,3 @@
+rootProject.name = "sequenceframeplugin_project"
+include ":app"
+include ":SequenceFramePlugin"
