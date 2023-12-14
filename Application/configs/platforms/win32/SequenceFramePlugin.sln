@@ -1,0 +1,67 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SequenceFramePlugin", "SequenceFramePlugin.vcxproj", "{B4D3DE8A-4EE5-4D7E-9EF2-639AB1C517D5}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SequenceFramePlugin_executable", "SequenceFramePlugin_executable.vcxproj", "{CBCF6BD2-8130-40A2-ACB4-9443A3BD8ECD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		GL_vs2013_Debug_DLL|Win32 = GL_vs2013_Debug_DLL|Win32
+		GL_vs2013_Debug|Win32 = GL_vs2013_Debug|Win32
+		GL_vs2013_Release_DLL|Win32 = GL_vs2013_Release_DLL|Win32
+		GL_vs2013_Release|Win32 = GL_vs2013_Release|Win32
+		GL_vs2015_Debug_DLL|Win32 = GL_vs2015_Debug_DLL|Win32
+		GL_vs2015_Debug|Win32 = GL_vs2015_Debug|Win32
+		GL_vs2015_Profiling_DLL|Win32 = GL_vs2015_Profiling_DLL|Win32
+		GL_vs2015_Profiling|Win32 = GL_vs2015_Profiling|Win32
+		GL_vs2015_Release_DLL|Win32 = GL_vs2015_Release_DLL|Win32
+		GL_vs2015_Release|Win32 = GL_vs2015_Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B4D3DE8A-4EE5-4D7E-9EF2-639AB1C517D5}.GL_vs2013_Debug_DLL|Win32.ActiveCfg = GL_vs2013_Debug_DLL|Win32
+		{B4D3DE8A-4EE5-4D7E-9EF2-639AB1C517D5}.GL_vs2013_Debug_DLL|Win32.Build.0 = GL_vs2013_Debug_DLL|Win32
+		{B4D3DE8A-4EE5-4D7E-9EF2-639AB1C517D5}.GL_vs2013_Debug|Win32.ActiveCfg = GL_vs2013_Debug|Win32
+		{B4D3DE8A-4EE5-4D7E-9EF2-639AB1C517D5}.GL_vs2013_Debug|Win32.Build.0 = GL_vs2013_Debug|Win32
+		{B4D3DE8A-4EE5-4D7E-9EF2-639AB1C517D5}.GL_vs2013_Release_DLL|Win32.ActiveCfg = GL_vs2013_Release_DLL|Win32
+		{B4D3DE8A-4EE5-4D7E-9EF2-639AB1C517D5}.GL_vs2013_Release_DLL|Win32.Build.0 = GL_vs2013_Release_DLL|Win32
+		{B4D3DE8A-4EE5-4D7E-9EF2-639AB1C517D5}.GL_vs2013_Release|Win32.ActiveCfg = GL_vs2013_Release|Win32
+		{B4D3DE8A-4EE5-4D7E-9EF2-639AB1C517D5}.GL_vs2013_Release|Win32.Build.0 = GL_vs2013_Release|Win32
+		{B4D3DE8A-4EE5-4D7E-9EF2-639AB1C517D5}.GL_vs2015_Debug_DLL|Win32.ActiveCfg = GL_vs2015_Debug_DLL|Win32
+		{B4D3DE8A-4EE5-4D7E-9EF2-639AB1C517D5}.GL_vs2015_Debug_DLL|Win32.Build.0 = GL_vs2015_Debug_DLL|Win32
+		{B4D3DE8A-4EE5-4D7E-9EF2-639AB1C517D5}.GL_vs2015_Debug|Win32.ActiveCfg = GL_vs2015_Debug|Win32
+		{B4D3DE8A-4EE5-4D7E-9EF2-639AB1C517D5}.GL_vs2015_Debug|Win32.Build.0 = GL_vs2015_Debug|Win32
+		{B4D3DE8A-4EE5-4D7E-9EF2-639AB1C517D5}.GL_vs2015_Profiling_DLL|Win32.ActiveCfg = GL_vs2015_Profiling_DLL|Win32
+		{B4D3DE8A-4EE5-4D7E-9EF2-639AB1C517D5}.GL_vs2015_Profiling_DLL|Win32.Build.0 = GL_vs2015_Profiling_DLL|Win32
+		{B4D3DE8A-4EE5-4D7E-9EF2-639AB1C517D5}.GL_vs2015_Profiling|Win32.ActiveCfg = GL_vs2015_Profiling|Win32
+		{B4D3DE8A-4EE5-4D7E-9EF2-639AB1C517D5}.GL_vs2015_Profiling|Win32.Build.0 = GL_vs2015_Profiling|Win32
+		{B4D3DE8A-4EE5-4D7E-9EF2-639AB1C517D5}.GL_vs2015_Release_DLL|Win32.ActiveCfg = GL_vs2015_Release_DLL|Win32
+		{B4D3DE8A-4EE5-4D7E-9EF2-639AB1C517D5}.GL_vs2015_Release_DLL|Win32.Build.0 = GL_vs2015_Release_DLL|Win32
+		{B4D3DE8A-4EE5-4D7E-9EF2-639AB1C517D5}.GL_vs2015_Release|Win32.ActiveCfg = GL_vs2015_Release|Win32
+		{B4D3DE8A-4EE5-4D7E-9EF2-639AB1C517D5}.GL_vs2015_Release|Win32.Build.0 = GL_vs2015_Release|Win32
+		{CBCF6BD2-8130-40A2-ACB4-9443A3BD8ECD}.GL_vs2013_Debug_DLL|Win32.ActiveCfg = GL_vs2013_Debug_DLL|Win32
+		{CBCF6BD2-8130-40A2-ACB4-9443A3BD8ECD}.GL_vs2013_Debug_DLL|Win32.Build.0 = GL_vs2013_Debug_DLL|Win32
+		{CBCF6BD2-8130-40A2-ACB4-9443A3BD8ECD}.GL_vs2013_Debug|Win32.ActiveCfg = GL_vs2013_Debug|Win32
+		{CBCF6BD2-8130-40A2-ACB4-9443A3BD8ECD}.GL_vs2013_Debug|Win32.Build.0 = GL_vs2013_Debug|Win32
+		{CBCF6BD2-8130-40A2-ACB4-9443A3BD8ECD}.GL_vs2013_Release_DLL|Win32.ActiveCfg = GL_vs2013_Release_DLL|Win32
+		{CBCF6BD2-8130-40A2-ACB4-9443A3BD8ECD}.GL_vs2013_Release_DLL|Win32.Build.0 = GL_vs2013_Release_DLL|Win32
+		{CBCF6BD2-8130-40A2-ACB4-9443A3BD8ECD}.GL_vs2013_Release|Win32.ActiveCfg = GL_vs2013_Release|Win32
+		{CBCF6BD2-8130-40A2-ACB4-9443A3BD8ECD}.GL_vs2013_Release|Win32.Build.0 = GL_vs2013_Release|Win32
+		{CBCF6BD2-8130-40A2-ACB4-9443A3BD8ECD}.GL_vs2015_Debug_DLL|Win32.ActiveCfg = GL_vs2015_Debug_DLL|Win32
+		{CBCF6BD2-8130-40A2-ACB4-9443A3BD8ECD}.GL_vs2015_Debug_DLL|Win32.Build.0 = GL_vs2015_Debug_DLL|Win32
+		{CBCF6BD2-8130-40A2-ACB4-9443A3BD8ECD}.GL_vs2015_Debug|Win32.ActiveCfg = GL_vs2015_Debug|Win32
+		{CBCF6BD2-8130-40A2-ACB4-9443A3BD8ECD}.GL_vs2015_Debug|Win32.Build.0 = GL_vs2015_Debug|Win32
+		{CBCF6BD2-8130-40A2-ACB4-9443A3BD8ECD}.GL_vs2015_Profiling_DLL|Win32.ActiveCfg = GL_vs2015_Profiling_DLL|Win32
+		{CBCF6BD2-8130-40A2-ACB4-9443A3BD8ECD}.GL_vs2015_Profiling_DLL|Win32.Build.0 = GL_vs2015_Profiling_DLL|Win32
+		{CBCF6BD2-8130-40A2-ACB4-9443A3BD8ECD}.GL_vs2015_Profiling|Win32.ActiveCfg = GL_vs2015_Profiling|Win32
+		{CBCF6BD2-8130-40A2-ACB4-9443A3BD8ECD}.GL_vs2015_Profiling|Win32.Build.0 = GL_vs2015_Profiling|Win32
+		{CBCF6BD2-8130-40A2-ACB4-9443A3BD8ECD}.GL_vs2015_Release_DLL|Win32.ActiveCfg = GL_vs2015_Release_DLL|Win32
+		{CBCF6BD2-8130-40A2-ACB4-9443A3BD8ECD}.GL_vs2015_Release_DLL|Win32.Build.0 = GL_vs2015_Release_DLL|Win32
+		{CBCF6BD2-8130-40A2-ACB4-9443A3BD8ECD}.GL_vs2015_Release|Win32.ActiveCfg = GL_vs2015_Release|Win32
+		{CBCF6BD2-8130-40A2-ACB4-9443A3BD8ECD}.GL_vs2015_Release|Win32.Build.0 = GL_vs2015_Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,32 @@
+系统要求：
+Window10
+
+命令行要求：
+Anaconda环境
+
+配置Python环境（Anaconda中进行）
+1. Python 3.7.4 (Anaconda)
+2. Pillow 6.2.0 (Anaconda)
+3. LZ4    2.2.1 (Anaconda)
+
+PS：库依赖如无法和上述完全一致，安装临近库亦可使用。
+
+
+TexturePacker.py脚本使用方法
+
+1. 安装ImageMagick，将magick.exe复制到需要执行脚本的目录，并重命名为imconv.exe。
+2. 解压缩ETCPACK-master.zip，将ETCPACK-master/vc9/Release/etcpack.exe复制到需要执行脚本的目录。
+3. 将序列帧图片复制到需要执行脚本的目录。
+4. 根据实际的序列帧图片命名规则，图片的数量和尺寸，所需要的纹理压缩格式等条件修改脚本。
+5. 以管理员权限打开Anaconda Prompt，切换到需要执行脚本的目录。
+6. 执行脚本，生成纹理压缩包：
+    TexturePacker.py textureNumber textureWidth textureHeight
+    
+例如：
+    TexturePacker.py 480 960 540
+
+PS:
+序列帧源文件要求命名规范为：frame_{0:06d},下标从0开始
+例如：frame_000000.png  frame_000001.png
+
+如需要改名，请将源文件按顺序排好后，将批处理文件： 序列帧改名.bat 放置到源文件目录下，运行（管理员权限）即可。
