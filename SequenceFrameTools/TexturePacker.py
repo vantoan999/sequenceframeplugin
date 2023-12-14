@@ -9,6 +9,7 @@ import zlib
 
 from PIL import Image
 from PIL import ImageOps
+import inspect
 
 '''
 Format | C Type | Python Type | Standard Size
@@ -43,36 +44,74 @@ imageEndIndex = imageStartIndex + texturePackageHeader["textureNumber"]
 
 intermediateSuffix = ".tga"
 
+def log(msg):
+    frame = inspect.currentframe().f_back
+    func_name = frame.f_code.co_name
+    line_no = frame.f_lineno
+    print(f'{func_name}()::{line_no}| {msg}')
+
+"""
+TO seperate images and tools to folders
+in: images
+out: multiple foldlers that each contains images and tools for image processing 
+"""
 def preprocess(startIndex, endIndex, dirName):
-    print("===================================================== Preprocess.\n")
+    log("===================================================== Preprocess.\n")
+    log(f'pID {multiprocessing.current_process().pid} works on {startIndex} to {endIndex} in folder {dirName}')
     os.mkdir(dirName)
     
     toolList = ["etcpack.exe", "imconv.exe"]
     for tool in toolList:
-        shutil.copy(tool, os.path.join(dirName, tool))
+        try:
+            shutil.copy(tool, os.path.join(dirName, tool))
+            log(f'copy {tool} to {dirName} SUCCESS')
+        except Exception as e:
+            log(f'copy {tool} to {dirName} FAILED: {e}')
 
     for i in range(startIndex, endIndex):
         imageName = formattedImageName.format(i)
-        shutil.move(imageName + imageSuffix, os.path.join(dirName, imageName + imageSuffix))
+        try:
+            shutil.move(imageName + imageSuffix, os.path.join(dirName, imageName + imageSuffix))
+            log(f'move {imageName + imageSuffix} to {dirName} SUCCESS')
+        except Exception as e:
+            log(f'move {imageName + imageSuffix} to {dirName} FAILED: {e}')
     print("preprocess done ++++++++++++++++++++++++++++++++++++++++ " + dirName)
 
+'''
+TO compress every image
+in: images and tools
+out: every compressed image in *pkm format
+- before compressing in pkm, images compressed in *.tga with Pillow (PIL)
+- then images compressed in *.pkm with ETCPACK
+'''
 def createTextures(startIndex, endIndex, dirName, width, height):
     print("================================================ Create textures.\n")
     os.chdir(dirName)
+    log(os.getcwd())
 
     for i in range(startIndex, endIndex):
         imageName = formattedImageName.format(i)
-
+        log(f'imageName = {imageName + imageSuffix}')
         with Image.open(imageName + imageSuffix, "r") as im:
-            im = im.resize((width, height))
-            im = ImageOps.flip(im)
-            im.save(imageName + intermediateSuffix)
-
-        os.system("etcpack -c etc2 -f RGBA8                    " + imageName + intermediateSuffix + "    " + imageName + "_ETC2_RGBA8" + ".pkm" + " -v off")
+            try:
+                im = im.resize((width, height))
+                im = ImageOps.flip(im)
+                im.save(imageName + intermediateSuffix)
+                log(f"Resize & FLip {imageName} and save as {imageName + intermediateSuffix} SUCCESS")
+            except Exception as e:
+                log(f"Resize & FLip {imageName} and save as {imageName + intermediateSuffix} FAILED: {e}")
+        os.system(f"etcpack -c etc2 -f RGBA8 {imageName + intermediateSuffix} {imageName}_ETC2_RGBA8.pkm -v on")
+        log(f"etcpack -c etc2 -f RGBA8 {imageName + intermediateSuffix} {imageName}_ETC2_RGBA8.pkm -v on")
 
     os.chdir("..")
     print("createTextures done ++++++++++++++++++++++++++++++++++++ " + dirName)
 
+'''
+TO compress every *.pkm to *.lz4 and *.zlib
+in: pkm
+out: lz4
+- use lib lz4 to compress 
+'''
 def compressTextures(startIndex, endIndex, dirName):
     print("============================================== Compress textures.\n")
     os.chdir(dirName)
@@ -97,6 +136,9 @@ def compressTextures(startIndex, endIndex, dirName):
     os.chdir("..")
     print("compressTextures done ++++++++++++++++++++++++++++++++++ " + dirName)
 
+'''
+TO pack every lz4 to an final result
+'''
 def packTextures(startIndex, endIndex):
     print("================================================== Pack textures.\n")
 
@@ -131,7 +173,10 @@ def packTextures(startIndex, endIndex):
                 headerOffset += CONST_LONG_BYTES
 
     print("packTextures done +++++++++++++++++++++++++++++++++++++++++++++++++")
-    
+
+'''
+TO move all *.lz4 to an parent folder
+'''
 def postprocess(startIndex, endIndex, dirName):
     print("==================================================== Postprocess.\n")
 
@@ -177,6 +222,12 @@ if __name__ == '__main__':
         texturePackageHeader["sizeOffset"] = CONST_LONG_BYTES * len(texturePackageHeader)
         texturePackageHeader["dataOffset"] = texturePackageHeader["sizeOffset"] + CONST_LONG_BYTES * texturePackageHeader["textureNumber"]
         imageEndIndex = imageStartIndex + texturePackageHeader["textureNumber"]
+    print("=====textureNumber = ", texturePackageHeader["textureNumber"])
+    print("=====textureWidth = ", texturePackageHeader["textureWidth"])
+    print("=====textureHeight = ", texturePackageHeader["textureHeight"])
+    print("=====sizeOffset = ", texturePackageHeader["sizeOffset"])
+    print("=====dataOffset = ", texturePackageHeader["dataOffset"])
+    print("=====imageEndIndex = ", imageEndIndex)
 
     directoryNumber = int(multiprocessing.cpu_count() * 10)
     workloadPerDirectory = int(texturePackageHeader["textureNumber"] / directoryNumber)
@@ -185,6 +236,7 @@ if __name__ == '__main__':
     pool = multiprocessing.Pool()
     for i in range(0, directoryNumber):
         dirName = formattedDirectoryName.format(i)
+        log(f'dirName = {dirName}')
         startIndex = imageStartIndex + i * (workloadPerDirectory + 1)
         endIndex = imageStartIndex + (i + 1) * (workloadPerDirectory + 1)
         if (i >= workloadMore):
@@ -204,6 +256,15 @@ if __name__ == '__main__':
             startIndex = imageStartIndex + i * workloadPerDirectory + workloadMore
             endIndex = imageStartIndex + (i + 1) * workloadPerDirectory  + workloadMore
         pool.apply_async(createTextures, (startIndex, endIndex, dirName, texturePackageHeader["textureWidth"], texturePackageHeader["textureHeight"] ))        
+    # i=3
+    # startIndex = imageStartIndex + i * (workloadPerDirectory + 1)
+    # endIndex = imageStartIndex + (i + 1) * (workloadPerDirectory + 1)
+    # dirName = formattedDirectoryName.format(i)
+    # log(f"startIndex= {startIndex}")
+    # log(f"endIndex= {endIndex}")
+    # log(f"dirName= {dirName}")
+    # # pool.apply(createTextures, (startIndex, endIndex, dirName, ))  
+    # createTextures(startIndex, endIndex, dirName, texturePackageHeader["textureWidth"], texturePackageHeader["textureHeight"] )
     pool.close()
     pool.join()
 
