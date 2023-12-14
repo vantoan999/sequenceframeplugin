@@ -1,2 +1,5 @@
 Application/build_vs2019
 Application/build_vs2017
+Tool_project/SequenceFramePlugin.kzproj_*
+Tool_project/SequenceFramePlugin.kzproj.autosave
+Tool_project/SequenceFramePlugin.lock

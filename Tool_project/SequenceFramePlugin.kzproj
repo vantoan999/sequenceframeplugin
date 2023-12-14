@@ -6346,7 +6346,7 @@
                           i:nil="true" />
                         <propertyTypeReference>SequenceFramePlugin.PackagePath</propertyTypeReference>
                         <value xmlns:d13p1="http://www.w3.org/2001/XMLSchema"
-                          i:type="d13p1:string">_ETC2_RGBA8.lz4</value>
+                          i:type="d13p1:string">dizziness.lz4</value>
                       </d10p1:Value>
                     </d10p1:KeyValueOfstringDynamicPropertyeuDbPpRS>
                     <d10p1:KeyValueOfstringDynamicPropertyeuDbPpRS>
@@ -6380,6 +6380,34 @@
                         <isReadOnly
                           i:nil="true" />
                         <propertyTypeReference>SequenceFramePlugin.SequenceSwitch</propertyTypeReference>
+                        <value xmlns:d13p1="http://www.w3.org/2001/XMLSchema"
+                          i:type="d13p1:boolean">true</value>
+                      </d10p1:Value>
+                    </d10p1:KeyValueOfstringDynamicPropertyeuDbPpRS>
+                    <d10p1:KeyValueOfstringDynamicPropertyeuDbPpRS>
+                      <d10p1:Key>SequenceFramePlugin.FPS</d10p1:Key>
+                      <d10p1:Value>
+                        <categoryOverride
+                          i:nil="true" />
+                        <isHidden
+                          i:nil="true" />
+                        <isReadOnly
+                          i:nil="true" />
+                        <propertyTypeReference>SequenceFramePlugin.FPS</propertyTypeReference>
+                        <value xmlns:d13p1="http://www.w3.org/2001/XMLSchema"
+                          i:type="d13p1:float">60</value>
+                      </d10p1:Value>
+                    </d10p1:KeyValueOfstringDynamicPropertyeuDbPpRS>
+                    <d10p1:KeyValueOfstringDynamicPropertyeuDbPpRS>
+                      <d10p1:Key>SequenceFramePlugin.LoopPlayback</d10p1:Key>
+                      <d10p1:Value>
+                        <categoryOverride
+                          i:nil="true" />
+                        <isHidden
+                          i:nil="true" />
+                        <isReadOnly
+                          i:nil="true" />
+                        <propertyTypeReference>SequenceFramePlugin.LoopPlayback</propertyTypeReference>
                         <value xmlns:d13p1="http://www.w3.org/2001/XMLSchema"
                           i:type="d13p1:boolean">true</value>
                       </d10p1:Value>
@@ -13960,7 +13988,7 @@
                   i:nil="true" />
                 <propertyTypeReference>CreationTime</propertyTypeReference>
                 <value xmlns:d9p1="http://www.w3.org/2001/XMLSchema"
-                  i:type="d9p1:dateTime">2023-12-14T03:59:13.4802904Z</value>
+                  i:type="d9p1:dateTime">2023-12-14T08:53:56.9335983Z</value>
               </d6p1:Value>
             </d6p1:KeyValueOfstringDynamicPropertyeuDbPpRS>
           </properties>
@@ -13994,7 +14022,7 @@
                       i:nil="true" />
                     <propertyTypeReference>EnginePluginFilePath</propertyTypeReference>
                     <value xmlns:d11p1="http://www.w3.org/2001/XMLSchema"
-                      i:type="d11p1:string">D:\Learning\01.Plugins\sequenceframeplugin\Application\build_vs2019\runtime\Release\SequenceFramePlugin.dll</value>
+                      i:type="d11p1:string">D:\Learning\01.Plugins\sequenceframeplugin\Application\lib\Win64\GL_vs2019_Release_DLL\SequenceFramePlugin.dll</value>
                   </d8p1:Value>
                 </d8p1:KeyValueOfstringDynamicPropertyeuDbPpRS>
                 <d8p1:KeyValueOfstringDynamicPropertyeuDbPpRS>
@@ -14050,7 +14078,7 @@
                       i:nil="true" />
                     <propertyTypeReference>CreationTime</propertyTypeReference>
                     <value xmlns:d11p1="http://www.w3.org/2001/XMLSchema"
-                      i:type="d11p1:dateTime">2023-12-14T03:59:13.4802904Z</value>
+                      i:type="d11p1:dateTime">2023-12-14T08:53:56.9355882Z</value>
                   </d8p1:Value>
                 </d8p1:KeyValueOfstringDynamicPropertyeuDbPpRS>
               </properties>
@@ -21299,7 +21327,7 @@
                     <ContentType>ABSOLUTE</ContentType>
                     <IsResourceReference>false</IsResourceReference>
                     <referredItemPath>
-                      <pathString>SequenceFramePlugin/Screens/Screen/RootPage/Stack Layout 2D/note/</pathString>
+                      <pathString>SequenceFramePlugin/Screens/Screen/RootPage/SequenceFramePlugin/</pathString>
                     </referredItemPath>
                     <textContent
                       i:nil="true" />
